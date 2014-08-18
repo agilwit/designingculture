@@ -1,0 +1,339 @@
+
+<head>
+
+
+<style>
+html, body {
+	height: 100%;
+	
+}
+
+ul , li {
+  margin: 0;
+  padding: 0;
+}
+
+.ringMenu {
+  width: 100px;
+  margin: 150px auto;
+  /*overflow:hidden;*/
+}
+
+.ringMenu:hover {
+	overflow:visible;}
+
+.ringMenu ul {
+  list-style: none;
+  position: relative;
+  width: 100px;
+  color: white;
+}
+.ringMenu ul a {
+  color: white;
+}
+.ringMenu ul li {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.ringMenu ul li.main a {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background: rgba(50,50,50,0.7);
+  text-align: center;
+  line-height: 100px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+}
+
+.ringMenu ul li:not(.main) a {
+  background: rgba(10,50,50,0.7);
+  text-align: center;
+  line-height: 20px;
+  /*width: 100px;*/
+  height: 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.ringMenu ul li a:hover {
+  background: rgba(230,150,20,0.7);
+  
+}
+
+.ringMenu ul li:not(.main) {
+ /* -webkit-transform: rotate(00deg) scale(0);
+  -moz-transform: rotate(00deg) scale(0);
+  -o-transform: rotate(00deg) scale(0);
+  transform: rotate(00deg) scale(0);*/
+  text-transform:uppercase;
+}
+.ringMenu:hover ul li {
+	overflow: visible;
+  	opacity: 1;
+}
+
+.ringMenu ul li .fullLabel {
+  position: absolute;
+  color: red;
+  top: 0px;
+  left: 50px;
+  width: 2000px;
+  text-transform:lowercase;
+}
+
+.ringMenu:hover ul li.print {
+ -webkit-transform-origin: -40px 12px;
+  -moz-transform-origin: -40px 12px;
+  -o-transform-origin: -40px 12px;
+  transform-origin: -40px 12px;
+ 
+  -webkit-transform: rotate(30deg) scale(1);
+  -moz-transform: rotate(30deg) scale(1);
+  -o-transform: rotate(30deg) scale(1);
+  transform: rotate(30deg) scale(1);
+  }
+
+.ringMenu ul li.print {
+  position: absolute;
+  top: 40px;
+  left: 106px;
+  
+}
+
+.ringMenu:hover ul li.dvd {
+/* -webkit-transform-origin: -40px 12px;
+  -moz-transform-origin: -40px 12px;
+  -o-transform-origin: -40px 12px;
+  transform-origin: -40px 12px;
+*/ 
+  -webkit-transform: rotate(45deg) scale(1);
+  -moz-transform: rotate(45deg) scale(1);
+  -o-transform: rotate(45deg) scale(1);
+  transform: rotate(45deg) scale(1);
+  }
+
+.ringMenu ul li.dvd {
+  position: absolute;
+  top: 40px;
+  left: 106px;
+  
+}
+
+.ringMenu:hover ul li.exhibit {
+/* -webkit-transform-origin: -40px 12px;
+  -moz-transform-origin: -40px 12px;
+  -o-transform-origin: -40px 12px;
+  transform-origin: -40px 12px;
+*/ 
+ 
+  -webkit-transform: rotate(60deg) scale(1);
+  -moz-transform: rotate(60deg) scale(1);
+  -o-transform: rotate(60deg) scale(1);
+  transform: rotate(60deg) scale(1);
+  }
+
+.ringMenu ul li.exhibit {
+  position: absolute;
+  top: 40px;
+  left: 106px;
+  
+}
+
+.ringMenu:hover ul li.walls {
+/* -webkit-transform-origin: -40px 12px;
+  -moz-transform-origin: -40px 12px;
+  -o-transform-origin: -40px 12px;
+  transform-origin: -40px 12px;
+*/ 
+ 
+  -webkit-transform: rotate(75deg) scale(1);
+  -moz-transform: rotate(75deg) scale(1);
+  -o-transform: rotate(75deg) scale(1);
+  transform: rotate(75deg) scale(1);
+  }
+
+.ringMenu ul li.walls {
+  position: absolute;
+  top: 40px;
+  left: 106px;
+}
+
+.ringMenu:hover ul li.maps {
+/* -webkit-transform-origin: -40px 12px;
+  -moz-transform-origin: -40px 12px;
+  -o-transform-origin: -40px 12px;
+  transform-origin: -40px 12px;
+*/ 
+ 
+  -webkit-transform: rotate(90deg) scale(1);
+  -moz-transform: rotate(90deg) scale(1);
+  -o-transform: rotate(90deg) scale(1);
+  transform: rotate(90deg) scale(1);
+  }
+
+.ringMenu ul li.maps {
+  position: absolute;
+  top: 40px;
+  left: 106px;
+}
+
+.ringMenu:hover ul li.videos {
+/* -webkit-transform-origin: -40px 12px;
+  -moz-transform-origin: -40px 12px;
+  -o-transform-origin: -40px 12px;
+  transform-origin: -40px 12px;
+*/ 
+ 
+/*  -webkit-transform: rotate(105deg) scale(1);
+  -moz-transform: rotate(105deg) scale(1);
+  -o-transform: rotate(105deg) scale(1);
+  transform: rotate(105deg) scale(1);
+  
+   clip-path: rectangle(-40px, 12px, 20px, 5px);
+  animate: mask 1s;*/
+    }
+
+.fullLabel {
+  position: relative;
+  left:20px;
+  clip-path: url(#clipping);
+}
+
+
+.raytitle:hover {
+  fill: black;
+  animate: rayslide 3s;
+}
+@keyframes rayslide {
+  0% {
+    x: -20px;
+  },
+  100% {
+    x: 20px;
+  }
+}
+.ringMenu ul li.videos {
+  position: absolute;
+  top: 40px;
+  left: 106px;
+/*   -webkit-transform: rotate(105deg) scale(1);
+  -moz-transform: rotate(105deg) scale(1);
+  -o-transform: rotate(105deg) scale(1);
+  transform: rotate(105deg) scale(1);*/
+}
+
+/*@keyframes mask {
+	0% {
+		clip-path: rectangle(-40px, 12px, 5px, 5px);
+		 -webkit-transform: rotate(105deg) scale(1);
+  -moz-transform: rotate(105deg) scale(1);
+  -o-transform: rotate(105deg) scale(1);
+  transform: rotate(105deg) scale(1);
+},
+100% {
+	clip-path: rectangle(-40px, 12px, 20px, 5px);
+	 -webkit-transform: rotate(105deg) scale(1);
+  -moz-transform: rotate(105deg) scale(1);
+  -o-transform: rotate(105deg) scale(1);
+  transform: rotate(105deg) scale(1);
+}
+}*/
+
+.ringMenu:hover ul li.blog {
+ 
+ 
+  -webkit-transform: rotate(120deg) scale(1);
+  -moz-transform: rotate(120deg) scale(1);
+  -o-transform: rotate(120deg) scale(1);
+  transform: rotate(120deg) scale(1);
+
+  -webkit-transform-origin: -80px 0px;
+  -moz-transform-origin: -80px 0px;
+  -o-transform-origin: -80px 0px;
+  transform-origin: -80px 0px;
+  }
+
+.ringMenu ul li.blog {
+  position: absolute;
+  top: 40px;
+  left: 106px;
+  
+}
+
+
+
+</style>
+
+<script src="jquery-2.1.1.min.js" />
+
+<script type="text/javascript" language="javascript">
+
+var $cog = $('#cog'),
+    $body = $(document.body),
+    bodyHeight = $body.height();
+	deg = 30;
+
+$(window).scroll(function () {
+    $cog.css({
+	  transform: 'rotate('' + $(body.scrollTop() / bodyHeight * 30000) + deg)'
+    });
+});
+
+function createRay(label, color, title) {
+	$(label).html = color + " " + title;
+	}
+$(  ).ready(function() {
+createRay("dvd", "#ff0000", "women of the world talk back");
+
+});
+
+</script>
+
+</head>
+<body>
+<svg class="fullLabel" height="30" width="200" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+    <clipPath id="clipping">
+      <circle cx="15" cy="15" r="30" />
+    </clipPath>
+  </defs>
+    <a xlink:href="#videos">
+	<text  class="raytitle" x="-20" y="15" fill="red">women of the world talk back!
+	<animate id="wotwtb_animate_in" attributeName="x" from="-20" to="50" dur="2s" begin="indefinite" />
+	<animate id="wotwtb_animate_out" attributeName="x" from="50" to="-20" dur="0.5s" begin="indefinite" />
+	</text>
+  </a>
+</svg>
+<p class="fullLabel">women of the world talk back</p>
+<div class="ringMenu" id="dot">
+
+<svg height="500" width="300"><circle r="50" cx="50" cy="50" fill="brown" /><a xlink:href="design"> <text x="10" y="40" fill="white">designing<tspan x="12" y="52">culture</tspan></text></a>
+
+<!--    <li class="dvd"><a href="#dvd">dvd</a><div class="fullLabel">women of the world talk back</div></li>
+  <li class="exhibit"><a href="#exhibit">exhibit</a><div class="fullLabel">xfr: experiments in the future of reading</div></li>
+  <li class="walls"><a href="#walls">walls</a><<div class="fullLabel">public interactives - designing technological literacies</div>/li>
+  <li class="maps"><a href="#maps">maps</a><div class="fullLabel">mapping the technological imagination</div></li>
+  <li class="blog"><a href="#blog">blog</a><div class="fullLabel"></div></li>
+--> 
+  
+  <rect rx="5" ry="5" x="105" y="105" width="60" height="30" style="fill:pink;" transform="rotate(15 50,50)"/>
+  <a xlink:href="#videos"><text x="105" y="105" fill="gray" transform="rotate(15 50,50)">videos</text></a>
+  <text x="105" y="115" fill="pink" transform="rotate(15 50,50)">primers</text></svg>
+
+
+
+<!-- /.ringMenu --></div>
+<script>
+$("div.ringMenu").mouseover(function() { 
+document.querySelector("#wotwtb_animate_in").beginElement();});
+$("div.ringMenu").mouseout(function() { 
+document.querySelector("#wotwtb_animate_out").beginElement();});
+
+</script>
+
+</body>
