@@ -1,0 +1,117 @@
+<head>
+<link rel="stylesheet" type="text/css" href="css/jsmenu_ag.css"/>
+
+<script src="jquery-2.1.1.min.js" />
+<script type="text/javascript" language="javascript">
+
+var $cog = $('#cog'),
+    $body = $(document.body),
+    bodyHeight = $body.height();
+
+$(window).scroll(function () {
+    $cog.css({
+        'transform': 'rotate(' + ($body.scrollTop() / bodyHeight * 30000) + 'deg)'
+    });
+});
+
+function createRay(label, color, title) {
+	$(label).html = color + " " + title;
+	}
+$(  ).ready(function() {
+createRay("dvd", "#ff0000", "women of the world talk back");
+
+});
+
+</script>
+</head>
+<body>
+<svg class="fullLabel" height="30" width="200" 
+		xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+    <clipPath id="clipping">
+  		<rect x="75" y="0" width="360" height="30" />
+    </clipPath>
+  </defs>
+  		<rect x="15" y="0" width="360" height="30" fill="yellow"/>
+    <a xlink:href="#videos">
+	<text  class="raytitle" x="15" y="10"  fill="red">women of the world talk back!
+	<animate id="wotwtb_animate_in" attributeName="x" from="-20" to="50" dur="2s" 
+			begin="indefinite" />
+	<animate id="wotwtb_animate_out" attributeName="x" from="50" to="-20" dur="0.5s" 
+			begin="indefinite" />
+	</text>
+  </a>
+</svg>
+<p class="fullLabel">women of the world talk back</p>
+<div class="dds" id="dot">
+
+<svg height="1500" width="1500">
+<defs>
+    <clipPath id="videos_clip">
+  		<rect transform="rotate(0 50,50)" x="165" y="35" width="1360" height="30" />
+    </clipPath>
+    <clipPath id="exhibits_clip">
+  		<rect x="165" y="35" width="1360" height="30" transform="rotate(30 50,50)"/>
+    </clipPath>
+  </defs>
+	<g class="ringMenu">
+	<circle  r="50" cx="50" cy="50" fill="brown" />
+	<a xlink:href="design"> 
+		<text x="10" y="40" fill="white">designing<tspan x="12" y="52">culture</tspan></text></a>
+	</g>
+<!--    <li class="dvd"><a href="#dvd">dvd</a><div class="fullLabel">women of the world talk back</div></li>
+  <li class="exhibit"><a href="#exhibit">exhibit</a><div class="fullLabel">xfr: experiments in the future of reading</div></li>
+  <li class="walls"><a href="#walls">walls</a><<div class="fullLabel">public interactives - designing technological literacies</div>/li>
+  <li class="maps"><a href="#maps">maps</a><div class="fullLabel">mapping the technological imagination</div></li>
+  <li class="blog"><a href="#blog">blog</a><div class="fullLabel"></div></li>
+--> 
+  <g class="video_ray">
+  	<rect x="165" y="35" width="1360" height="30" transform="rotate(15 50,50)" fill="yellow"/>
+  	<animate id="videos_move_to_title" begin="indefinite" />
+  	<g class="video_box" onmouseover="document.querySelector('#videos_animate_in').beginElement();">
+  		<rect rx="5" ry="5" x="105" y="35" width="60" height="30" style="fill:pink;" transform="rotate(15 50,50)"/>
+  		<a xlink:href="#videos"><text x="110" y="57" fill="gray" 
+  			transform="rotate(15 50,50)">videos</text></a>
+  	</g>
+  <text id="videos_longtext" x="170" y="57" fill="blue"  transform="rotate(15 50,50)" style="justify:right;"
+  	>primers are a really long sentence showing up somewhere on the screen
+	<animate id="videos_animate_in" attributeName="x" from="110" to="250" dur="2s" -->
+			begin="indefinite" />
+	<animate id="videos_animate_out" attributeName="x" from="50" to="-20" dur="0.5s" 
+			begin="indefinite" />
+</text>
+</g>
+
+  <g class="exhibits_ray">
+  <animate id="exhibits_move_to_title" begin="indefinite" />
+  <rect rx="5" ry="5" x="105" y="35" width="60" height="30" style="fill:orange;" transform="rotate(30 50,50)"
+  	/>
+  <text x="110" y="57" fill="blue" 
+  	transform="rotate(30 50,50)">exhibit</text>
+  <text id="exhibits_longtext" x="170" y="127" fill="blue" 	transform="rotate(30 50,50)" 
+  	>exhibits are a really long sentence showing up somewhere on the screen
+  	<animate id="exhibits_animate_in" attributeName="x" from="110" to="250" dur="2s" 
+			begin="indefinite" />
+	<animate id="exhibits_animate_out" attributeName="x" from="50" to="-20" dur="0.5s" 
+			begin="indefinite" />
+</text>
+</g>
+</svg>
+
+
+
+<!-- /.ringMenu --></div>
+<script>
+$("g.ringMenu").mouseover(function() { 
+document.querySelector("#wotwtb_animate_in").beginElement();
+document.querySelector("#videos_animate_in").beginElement();});
+$("g.ringMenu").mouseout(function() { 
+document.querySelector("#wotwtb_animate_out").beginElement();
+document.querySelector("#videos_animate_out").beginElement();});
+$("g.video_ray").click(function(){
+document.querySelector("#videos_move_to_title").beginElement();
+document.querySelector("#videos_animate_out").beginElement();});
+
+</script>
+
+</body>
