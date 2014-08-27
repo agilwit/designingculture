@@ -1,0 +1,194 @@
+<head>
+
+<style>
+.text {font-family:Helvetica;
+		font-size: 30px;
+		color: #D45C5E;
+		width: auto;
+		height: 50px;
+		text-align: center;
+}
+
+#butStepBwd {
+	cursor: hand;
+	outline: 0;
+	 background: transparent;
+    border: none !important;
+	margin: 0px 0px;
+	width: 50px;
+	height: 420px;
+		float: left;
+		background-image: url(InteractiveWall/bin/images/handleleft.png);}
+		
+#butStepFwd {
+	cursor: hand;
+	outline: 0;
+	 background: transparent;
+    border: none !important;
+	margin: 0px 0px;
+	width: 50px;
+	height: 420px;
+	float: left;
+	background-image: url(InteractiveWall/bin/images/handleright.png);
+}
+
+</style>
+
+<script type='text/javascript'>
+
+function getTime(opt) {
+  minsec = opt.value.split(':');
+  return parseFloat( minsec[0]*60 + minsec[1] );
+}
+
+var curScene = StartScene;
+var curSceneStart = getTime(StartScene);
+var curSceneEnd = getTime(SecondScene);
+
+function CheckForScene(pos) {
+  if( curSceneStart <= pos && pos <= curSceneEnd ) return;
+  curSceneEnd = 0; nextscene = scene = null; 
+  for(sno in Scenes.childNodes) { cn = Scenes.childNodes[sno]; if(cn.tagName=="OPTION") {
+    scene = nextscene; nextscene = Scenes.childNodes[sno]; 
+    curSceneStart = curSceneEnd; curSceneEnd = getTime(nextscene);
+    if( curSceneStart <= pos && pos <= curSceneEnd && scene ) {
+      scene.selected = true;
+      return;
+    }
+  }}
+  curSceneStart = curSceneEnd; curSceneEnd = ReiherVideo.duration; scene = nextscene; 
+  if( curSceneStart <= pos && pos <= curSceneEnd && scene ) scene.selected = true;
+}
+
+function InitControls(video) {
+  videopos.max = video.duration - 1;
+  videopos.style.width = video.videoWidth;  // video.offsetWidth || video.innerWidth; 
+  StartScene.selected = true;
+  //videopos.style.width = ReiherVideoControls.offsetWidth || ReiherVideoControls.innerWidth;
+  //video = document.querySelector("VIDEO");
+  //videopos = document.getElementById("");
+}
+
+var ratedelta = 0;
+var buttons = [ 'playbutton','fstbwdbut','fstfwdbut','snailbut' ];
+var savedicon = {};
+
+function PlayPause(video,but,rate) {
+  if (video.paused||video.playbackRate + ratedelta != rate) PlayVideo(video,but,rate); else PauseVideo(video); 
+}
+
+function RestoreButtons() {
+  for(butno in buttons) { but_id = buttons[butno]; but = document.getElementById(but_id);
+    if(but_id in savedicon) but.value = savedicon[but_id]; }
+}
+
+function PlayVideo(video,but,rate) {
+  if(video.paused) video.play(); 
+  video.playbackRate = rate; 
+  ratedelta = rate - video.playbackRate;
+  RestoreButtons();
+  if(!(but.id in savedicon)) savedicon[but.id] = but.value;
+  but.value = String.fromCharCode('0x25AE','0x25AE');
+}
+
+function PauseVideo(video) {
+  video.pause(); RestoreButtons();
+}
+
+function FrameStep(video,but,percentstep,image) {
+  PauseVideo(video);
+  video.currentTime =  video.currentTime + (video.duration * percentstep /100);
+  UpdateTime(video);
+  //image.style.left += image.style.width * percentstep /100;
+  var curLeft = parseInt(image.style.left);
+  if (isNaN(curLeft)) curLeft = 0;
+  image.style.left =  curLeft - (percentstep *10) + 'px';
+  
+}
+
+function RewindVideo(video) {
+  PauseVideo(video);
+  video.currentTime =  0;
+  UpdateTime(video);
+}
+
+function UpdateTime(video) {
+  videopos.value = video.currentTime; CheckForScene(video.currentTime);}
+
+function GotoPos(video,newpos) {
+  video.currentTime = newpos; CheckForScene(newpos); }
+
+function SelectScene(video,selector) {
+  minsec = selector.value.split(':');
+  video.currentTime = parseFloat( minsec[0]*60 + minsec[1] );
+  UpdateTime(video);
+  //PlayVideo(video,playbutton,1);
+}
+
+function Mute(video,but) {
+  video.muted = !video.muted;
+  but.style.color = video.muted ? 'silver' : 'black';
+}
+
+function AdjustVolume(video,value) {
+  video.volume = value;
+  VolumeTxt.innerHTML = Math.round(value*100)+'%'
+}
+
+</script>
+
+
+</head>
+<body>
+<div class='text'> Episodes in the History of Reading: <br> Part 2 (300 bce - 1800 bce) </div>
+<br> <br> <br>
+<div>
+<table width="auto" class=VideoControls id=ReiherVideoControls >
+ <tr><td>
+ <input type=button id=butStepBwd  onclick='FrameStep(ReiherVideo,this,-1.0,BGImage)'>
+
+ <div class='video' style='float:left;'><video id=ReiherVideo preload=auto oncanplay='InitControls(this)' ontimeupdate='UpdateTime(this)'>
+    <source src='InteractiveWall/bin/videos/XFRPanel2.mp4' type='video/mp4'>  </video></div>
+   
+    <!--source src='data/Reiher-848x480-600kb.mp4' type='video/mp4'>
+    <source src='data/Reiher-848x480-600kb.webm' type='video/webm'>
+    <source src='data/Reiher-848x480-600kb.ogg' type='video/ogg'-->
+
+  
+  <input type=button id=butStepFwd  onclick='FrameStep(ReiherVideo,this,+1.0,BGImage)'>
+
+
+  <select id='Scenes' style='display:none;' onchange='SelectScene(ReiherVideo,this)' size=8>
+    <option value='0:00' selected id=StartScene>0:00 Abflug</option>
+    <option value='0:03' id=SecondScene>0:03 Reiher über freiem Wasser</option>
+    <option value='0:07'>0:07 Landeanflug</option>
+    <option value='0:08.6'>0:08 Landung</option>
+    <option value='0:10'>0:10 sitzend (am Baumstamm)</option>
+  </select>
+  <br><br>
+  <input type=button id=butStop style='display:none;' value='&#x25FC;' onclick='RewindVideo(ReiherVideo);'>
+  <input type=button id=fstbwdbut style='display:none;' value='&#x00AB;'           onclick='PlayPause(ReiherVideo,this,-2)'>
+  
+  <input type=button id=snailbut style='display:none;' value='~'                  onclick='PlayPause(ReiherVideo,this,0.2)'>
+  <input type=button id=playbutton style='display:none;' value='&#x25B6;'           onclick='PlayPause(ReiherVideo,this,1)'>
+ 
+  <input type=button id=fstfwdbut style='display:none;' value='&#x00BB;'           onclick='PlayPause(ReiherVideo,this,2)'>
+  <br>
+  <table><tr>
+    <td><input type=range id=volume style='display:none;' min=0 max=1 step=0.1 value=1 onchange='AdjustVolume(ReiherVideo,this.value)'>
+    <td><input type=button style='display:none;' value='&#x266B;' onclick='Mute(ReiherVideo,this)'>
+    
+  </table> 
+ <tr><td>
+  <input type=range id=videopos style='display:none;' min=0 max=0 step=0.04 onchange='GotoPos(ReiherVideo,this.value)'>
+  <!--progress value=3 min=0 max=10 id=videopos-->
+</table>
+</div>
+<div id="BGImage" style="top: 0;
+position: absolute;
+z-index: -1; top:110px;">
+<img src="InteractiveWall/bin/images/Panel2FINAL.png">
+</div>
+
+
+</body>
