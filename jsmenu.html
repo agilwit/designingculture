@@ -1,0 +1,40 @@
+<head>
+
+
+<link rel="stylesheet" type="text/css" href="jsmenu.css">
+
+
+
+<script type="text/javascript" language="javascript">
+
+var $cog = $('#cog'),
+    $body = $(document.body),
+    bodyHeight = $body.height();
+
+$(window).scroll(function () {
+    $cog.css({
+        'transform': 'rotate(' + ($body.scrollTop() / bodyHeight * 30000) + 'deg)'
+    });
+});
+
+
+
+</script>
+
+</head>
+<body>
+<div class="ringMenu">
+<ul>
+  <li class="main"><a href="#main">designing <strong>culture</strong></a></li>
+  <li class="dvd"><a href="#dvd">dvd</a><div class="fullLabel">women of the world talk back</div></li>
+  <li class="exhibit"><a href="#exhibit">exhibit</a><div class="fullLabel">xfr: experiments in the future of reading</div></li>
+  <li class="walls"><a href="#walls">walls</a><<div class="fullLabel">public interactives - designing technological literacies</div>/li>
+  <li class="maps"><a href="#maps">maps</a><div class="fullLabel">mapping the technological imagination</div></li>
+  <li class="videos"><a href="#videos">videos</a><div class="fullLabel">primers</div></li>
+  <li class="blog"><a href="#blog">blog</a><div class="fullLabel"></div></li>
+</ul>
+
+
+<!-- /.ringMenu --></div>
+
+</body>

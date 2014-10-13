@@ -1,68 +1,236 @@
-<head>
+ <head>
+ <link rel="stylesheet" type="text/css" href="css/jsmenu_ag.css"/>
+ 
+ <script src="jquery-2.1.1.min.js" />
+ <script type="text/javascript" language="javascript">
+ 
+ var $cog = $('#cog'),
+     $body = $(document.body),
+     bodyHeight = $body.height();
+ 
+ $(window).scroll(function () {
+     $cog.css({
+         'transform': 'rotate('   ($body.scrollTop() / bodyHeight * 30000)   'deg)'
+     });
+ });
+ 
+ function createRay(label, color, title) {
+ 	$(label).html = color   " "   title;
+ 	}
+ $(  ).ready(function() {
+ createRay("dvd", "#ff0000", "women of the world talk back");
+ 
+ });
+ 
+ </script>
+ </head>
+ <body>
+ <svg class="fullLabel" height="30" width="200" 
+ 		xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+     <clipPath id="clipping">
+   		<rect x="75" y="0" width="360" height="30" />
+     </clipPath>
+   </defs>
+   		<rect x="15" y="0" width="360" height="30" fill="yellow"/>
+     <a xlink:href="#videos">
+ 	<text  class="raytitle" x="15" y="10"  fill="red">women of the world talk back!
+ 	<animate id="wotwtb_animate_in" attributeName="x" from="-20" to="50" dur="2s" 
+ 			begin="indefinite" />
+ 	<animate id="wotwtb_animate_out" attributeName="x" from="50" to="-20" dur="0.5s" 
+ 			begin="indefinite" />
+ 	</text>
+   </a>
+ </svg>
+ <p class="fullLabel">women of the world talk back</p>
+ <div class="dds" id="dot">
+ 
+     
+ <svg height="1500" width="1700" >
+ <svg x="50">
+     <defs>
+     <clipPath id="videos_clip">
+   		<rect x="315" y="35" width="1360" height="30" transform="rotate(0 200,50)"/>
+     </clipPath>
+     <clipPath id="exhibits_clip">
+   		<rect x="315" y="35" width="1360" height="30" transform="rotate(22 200,50)"/>
+     </clipPath>
+	 <clipPath id="walls_clip">
+   		<rect x="315" y="35" width="1360" height="30" transform="rotate(43 200,50)"/>
+     </clipPath>
+	 <clipPath id="print_clip">
+   		<rect x="315" y="35" width="1360" height="30" transform="rotate(64 200,50)"/>
+     </clipPath>
+	 <clipPath id="dvd_clip">
+   		<rect x="315" y="35" width="1360" height="30" transform="rotate(85 200,50)"/>
+     </clipPath>
+	 <clipPath id="maps_clip">
+   		<rect x="315" y="35" width="1360" height="30" transform="rotate(107 200,50)"/>
+     </clipPath>
+	 <clipPath id="blog_clip">
+   		<rect x="315" y="35" width="1360" height="30" transform="rotate(129 200,50)"/>
+     </clipPath>
+   </defs>
+ 	<g class="ringMenu">
+ 	<circle  r="50" cx="200" cy="50" fill="brown" />
+ 	<a xlink:href="design"> 
+ 		<text x="160" y="50" fill="white" style="font-size:15px;">DESIGNING<tspan x="162" y="65">CULTURE</tspan></text></a>
+ 	</g>
+ <!--    <li class="dvd"><a href="#dvd">dvd</a><div class="fullLabel">women of the world talk back</div></li>
+   <li class="exhibit"><a href="#exhibit">exhibit</a><div class="fullLabel">xfr: experiments in the future of reading</div></li>
+   <li class="walls"><a href="#walls">walls</a><<div class="fullLabel">public interactives - designing technological literacies</div>/li>
+   <li class="maps"><a href="#maps">maps</a><div class="fullLabel">mapping the technological imagination</div></li>
+   <li class="blog"><a href="#blog">blog</a><div class="fullLabel"></div></li>
+ --> 
+   <g class="video_ray">
+   	<rect x="315" y="35" width="1360" height="30" transform="rotate(0 200,50)" fill="yellow"/>
+   	<animate id="videos_move_to_title" begin="indefinite" />
+   	<g class="video_box" onmouseover="document.querySelector('#videos_animate_in').beginElement();">
+   		<rect rx="5" ry="5" x="255" y="35" width="55" height="20" style="fill:pink;" transform="rotate(0 200,50)"/>
+   		<a xlink:href="#videos"><text x="260" y="50" fill="white" 
+   			transform="rotate(0 200,50)">VIDEOS</text></a>
+   	</g>
+   <text id="videos_longtext" x="312" y="50" fill="blue"  transform="rotate(0 200,50)" style="justify:right;"
+   	>primers are a really long sentence showing up somewhere on the screen
+ 	<animate id="videos_animate_in" attributeName="x" from="270" to="300" dur="2s" -->
+ 			begin="indefinite" />
+ 	<animate id="videos_animate_out" attributeName="x" from="200" to="-70" dur="0.5s" 
+ 			begin="indefinite" />
+ </text>
+ </g>
+ 
+   <g class="exhibits_ray">	
+   <animate id="exhibits_move_to_title" begin="indefinite" />
+   <rect rx="5" ry="5" x="255" y="35" width="60" height="20" style="fill:#728AFF;" transform="rotate(22 200,50)"
+   	/>
+   <text x="260" y="50" fill="white" 
+   	transform="rotate(22 200,50)">EXHIBIT</text>
+   <text id="exhibits_longtext" x="300" y="50" fill="blue" transform="rotate(22 200,50)" style="justify:right;"
+   	>exhibits are a really long sentence showing up somewhere on the screen
+   	<animate id="exhibits_animate_in" attributeName="x" from="270" to="50" dur="2s" 
+ 			begin="indefinite" />
+ 	<animate id="exhibits_animate_out" attributeName="x" from="250" to="-20" dur="0.5s" 
+ 			begin="indefinite" />
+ </text>
+ </g>
+ 
+ <g class="walls_ray">
+   <animate id="walls_move_to_title" begin="indefinite" />
+   <rect rx="5" ry="5" x="255" y="35" width="50" height="20" style="fill:green;" transform="rotate(43 200,50)"
+   	/>
+   <text x="260" y="50" fill="white" 
+   	transform="rotate(43 200,50)">WALLS</text>
+   <text id="walls_longtext" x="300" y="50" fill="blue" 	transform="rotate(43 200,50)" 
+   	>walls are a really long sentence showing up somewhere on the screen
+   	<animate id="walls_animate_in" attributeName="x" from="260" to="250" dur="2s" 
+ 			begin="indefinite" />
+ 	<animate id="walls_animate_out" attributeName="x" from="200" to="-20" dur="0.5s" 
+ 			begin="indefinite" />
+ </text>
+ </g>
+ 
+ <g class="print_ray">
+   <animate id="print_move_to_title" begin="indefinite" />
+   <rect rx="5" ry="5" x="255" y="35" width="45" height="20" style="fill:#E68BFF;" transform="rotate(64 200,50)"
+   	/>
+   <text x="260" y="50" fill="white" 
+   	transform="rotate(64 200,50)">PRINT</text>
+   <text id="print_longtext" x="300" y="50" fill="blue" 	transform="rotate(64 200,50)" 
+   	>print are a really long sentence showing up somewhere on the screen
+   	<animate id="print_animate_in" attributeName="x" from="270" to="250" dur="2s" 
+ 			begin="indefinite" />
+ 	<animate id="print_animate_out" attributeName="x" from="200" to="-20" dur="0.5s" 
+ 			begin="indefinite" />
+ </text>
+ </g>
+ 
+ <g class="dvd_ray">
+   <animate id="dvd_move_to_title" begin="indefinite" />
+   <rect rx="5" ry="5" x="255" y="35" width="40" height="20" style="fill:red;" transform="rotate(85 200,50)"
+   	/>
+   <text x="260" y="50" fill="white" 
+   	transform="rotate(85 200,50)">DVD</text>
+   <text id="dvd_longtext" x="300" y="50" fill="blue" 	transform="rotate(85 200,50)" 
+   	>dvd are a really long sentence showing up somewhere on the screen
+   	<animate id="dvd_animate_in" attributeName="x" from="260" to="250" dur="2s" 
+ 			begin="indefinite" />
+ 	<animate id="dvd_animate_out" attributeName="x" from="200" to="-20" dur="0.5s" 
+ 			begin="indefinite" />
+ </text>
+ </g>
+ 
+ <g class="maps_ray">
+   <animate id="maps_move_to_title" begin="indefinite" />
+   <rect rx="5" ry="5" x="255" y="35" width="40" height="20" style="fill:orange;" transform="rotate(107 200,50)"
+   	/>
+   <text x="260" y="50" fill="white" 
+   	transform="rotate(107 200,50)">MAPS</text>
+   <text id="maps_longtext" x="300" y="50" fill="blue" 	transform="rotate(107 200,50)" 
+   	>maps are a really long sentence showing up somewhere on the screen
+   	<animate id="maps_animate_in" attributeName="x" from="260" to="250" dur="2s" 
+ 			begin="indefinite" />
+ 	<animate id="maps_animate_out" attributeName="x" from="200" to="-20" dur="0.5s" 
+ 			begin="indefinite" />
+ </text>
+ </g>
+ 
+ <g class="blog_ray">
+   <animate id="blog_move_to_title" begin="indefinite" />
+   <rect rx="5" ry="5" x="255" y="35" width="40" height="20" style="fill:#38FFC9;" transform="rotate(129 200,50)"
+   	/>
+   <text x="260" y="50" fill="white" 
+   	transform="rotate(129 200,50)">BLOG</text>
+  
+ </text>
+ </g>
+ 
+ </svg>
 
-
-<link rel="stylesheet" type="text/css" href="css/jsmenu_ag.css"/>
-
-<script src="jquery-2.1.1.min.js" />
-
-<script type="text/javascript" language="javascript">
-
-var $cog = $('#cog'),
-    $body = $(document.body),
-    bodyHeight = $body.height();
-
-$(window).scroll(function () {
-    $cog.css({
-        'transform': 'rotate(' + ($body.scrollTop() / bodyHeight * 30000) + 'deg)'
-    });
-});
-
-function createRay(label, color, title) {
-	$(label).html = color + " " + title;
-	}
-$(  ).ready(function() {
-createRay("dvd", "#ff0000", "women of the world talk back");
-
-});
-
-</script>
-
-</head>
-<body>
-<svg class="fullLabel" height="30" width="200" xmlns:xlink="http://www.w3.org/1999/xlink">
-<defs>
-    <clipPath id="clipping">
-      <circle cx="15" cy="15" r="30" />
-    </clipPath>
-  </defs>
-    <a xlink:href="#videos">
-	<text  class="raytitle" x="-20" y="15" fill="red">women of the world talk back!
-	<animate id="wotwtb_animate_in" attributeName="x" from="-20" to="50" dur="2s" begin="indefinite" />
-	<animate id="wotwtb_animate_out" attributeName="x" from="50" to="-20" dur="0.5s" begin="indefinite" />
-	</text>
-  </a>
-</svg>
-<p class="fullLabel">women of the world talk back</p>
-<div class="ringMenu" id="dot">
-<ul>
-<li class="main"><a href="#main">designing <strong>culture</strong></a></li>
-<!--    <li class="dvd"><a href="#dvd">dvd</a><div class="fullLabel">women of the world talk back</div></li>
-  <li class="exhibit"><a href="#exhibit">exhibit</a><div class="fullLabel">xfr: experiments in the future of reading</div></li>
-  <li class="walls"><a href="#walls">walls</a><<div class="fullLabel">public interactives - designing technological literacies</div>/li>
-  <li class="maps"><a href="#maps">maps</a><div class="fullLabel">mapping the technological imagination</div></li>
-  <li class="blog"><a href="#blog">blog</a><div class="fullLabel"></div></li>
--->
-  <li class="videos"><a href="#videos">videos</a><div class="fullLabel">primers</div></li>
-</ul>
-
-
-<!-- /.ringMenu --></div>
-<script>
-$("div.ringMenu").mouseover(function() { 
-document.querySelector("#wotwtb_animate_in").beginElement();});
-$("div.ringMenu").mouseout(function() { 
-document.querySelector("#wotwtb_animate_out").beginElement();});
-
-</script>
-
-</body>
+ 
+ 
+ 
+ <!-- /.ringMenu --></div>
+ <script>
+ $("g.ringMenu").mouseover(function() { 
+ document.querySelector("#wotwtb_animate_in").beginElement();
+ document.querySelector("#videos_animate_in").beginElement();});
+ $("g.ringMenu").mouseout(function() { 
+ document.querySelector("#wotwtb_animate_out").beginElement();
+ document.querySelector("#videos_animate_out").beginElement();});
+ $("g.video_ray").click(function(){
+ document.querySelector("#videos_move_to_title").beginElement();
+ document.querySelector("#videos_animate_out").beginElement();});
+ 
+  document.querySelector("#exhibit_animate_out").beginElement();});
+ $("g.exhibit_ray").click(function(){
+ document.querySelector("#exhibit_move_to_title").beginElement();
+ document.querySelector("#exhibit_animate_out").beginElement();});
+ 
+  document.querySelector("#walls_animate_out").beginElement();});
+ $("g.walls_ray").click(function(){
+ document.querySelector("#walls_move_to_title").beginElement();
+ document.querySelector("#walls_animate_out").beginElement();});
+ 
+  document.querySelector("#print_animate_out").beginElement();});
+ $("g.print_ray").click(function(){
+ document.querySelector("#print_move_to_title").beginElement();
+ document.querySelector("#print_animate_out").beginElement();});
+ 
+  document.querySelector("#dvd_animate_out").beginElement();});
+ $("g.dvd_ray").click(function(){
+ document.querySelector("#dvd_move_to_title").beginElement();
+ document.querySelector("#dvd_animate_out").beginElement();});
+ 
+  document.querySelector("#maps_animate_out").beginElement();});
+ $("g.maps_ray").click(function(){
+ document.querySelector("#maps_move_to_title").beginElement();
+ document.querySelector("#maps_animate_out").beginElement();});
+ 
+  document.querySelector("#blog_animate_out").beginElement();});
+ $("g.blog_ray").click(function(){
+ document.querySelector("#blog_move_to_title").beginElement();
+ document.querySelector("#blog_animate_out").beginElement();});
+ 
+ </script>
+ 
+ </body>
